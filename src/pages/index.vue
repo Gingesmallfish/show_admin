@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- 我这用的是elemnet-puls骨架屏 -->
     <el-row :gutter="20">
       <template v-if="panels.length === 0">
         <el-col :span="6" v-for="i in 4" :key="i">
@@ -34,7 +35,7 @@
             </div>
           </template>
           <span class="text-3xl font-bold text-gray-500">
-            {{ item.value }}
+            <CountTo :value="item.value" />
           </span>
           <el-divider />
           <div class="flex justify-between text-sm text-gray-500">
@@ -44,17 +45,29 @@
         </el-card>
       </el-col>
     </el-row>
+
+
+    <IndexNavs />
+    <el-row :gutter="20">
+      <el-col :span="12" :offset="0">
+        <IndexChart />
+      </el-col>
+      <el-col :span="12" :offset="0"></el-col>
+    </el-row>
+
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
 import { getStatistics1 } from '@/api/index.js'
+import CountTo from "@/components/CountTo.vue"
+import IndexNavs from '@/components/IndexNavs.vue'
+import IndexChart from '@/components/IndexChart.vue'
 
 const panels = ref([])
 getStatistics1()
   .then(res => {
     panels.value = res.panels
-    console.log(panels.value);
   })
 </script>
