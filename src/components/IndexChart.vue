@@ -1,5 +1,5 @@
 <template>
-  <el-card shadow="never" style="margin-top: 10px;">
+  <el-card shadow="never">
     <template #header>
       <div class="flex justify-between">
         <span class="text-sm">订单统计</span>
