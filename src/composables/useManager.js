@@ -1,8 +1,8 @@
-import {reactive, ref} from "vue";
-import {logout, updatepassword} from "@/api/manager.js";
-import {showModel, toast} from "@/composables/util.js";
-import {useRouter} from "vue-router";
-import {useStore} from "vuex";
+import { reactive, ref } from "vue";
+import { logout, updatepassword } from "@/api/manager.js";
+import { showModel, toast } from "@/composables/util.js";
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
 
 
 export function useRePassword() {
@@ -17,11 +17,11 @@ export function useRePassword() {
     })
 
 
-// 表单验证
+    // 表单验证
     const rules = {
-        oldpassword: [{required: true, message: '旧密码不能为空', trigger: 'blur'}],
-        password: [{required: true, message: '新密码不能为空', trigger: 'blur'}],
-        repassword: [{required: true, message: '确认密码不能为空', trigger: 'blur'}],
+        oldpassword: [{ required: true, message: '旧密码不能为空', trigger: 'blur' }],
+        password: [{ required: true, message: '新密码不能为空', trigger: 'blur' }],
+        repassword: [{ required: true, message: '确认密码不能为空', trigger: 'blur' }],
     }
 
     const formRef = ref(null)
