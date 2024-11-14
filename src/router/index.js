@@ -1,4 +1,4 @@
-import {createRouter, createWebHashHistory} from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import Login from "@/pages/Login.vue";
 import NotFound from "@/pages/404.vue"
 import Admin from "@/layouts/admin.vue";
@@ -50,7 +50,7 @@ const asyncRoutes = [
         meta: {
             title: "商品管理"
         }
-    }, 
+    },
     {
         path: "/user/list",
         name: "/user/list",
@@ -99,7 +99,7 @@ const asyncRoutes = [
             title: "配置列表"
         }
     },
-    
+
     {
         path: "/coupon/list",
         name: "/coupon/list",
@@ -108,7 +108,7 @@ const asyncRoutes = [
             title: "优惠卷列表"
         }
     },
-    
+
     // {
     //     path: "/category/list",
     //     name: "/category/list",

@@ -7,8 +7,8 @@
       商城管理
     </span>
     <el-icon class="icon-btn" @click="$store.commit('handelAsideWidth')">
-      <Fold v-if="$store.state.asideWidth === '250px'" />
-      <Expand v-else />
+      <Expand v-if="$store.state.asideWidth === '250px'" />
+      <Fold v-else />
     </el-icon>
     <el-tooltip effect="dark" content="刷新" placement="bottom">
       <el-icon class="icon-btn" @click="handleRefresh">
@@ -61,12 +61,8 @@
 import FormDrawer from "@/components/FormDrawer.vue";
 import { useFullscreen } from '@vueuse/core'
 import { useLogout, useRePassword } from "@/composables/useManager.js";
-import { Expand, Fold } from "@element-plus/icons-vue";
 // 是否isFullscreen 全屏状态
 const { isFullscreen, toggle } = useFullscreen()
-
-
-
 
 const {
   formDrawerRef,
