@@ -49,7 +49,7 @@ const iconNavs = [
     },
     {
         icon: "bell",
-        colot: "text-green-500",
+        color: "text-green-500",
         title: "公告",
         path: "/notice/list"
     },
@@ -61,7 +61,7 @@ const iconNavs = [
     },
     {
         icon: "files",
-        colot: "text-yellow-500",
+        color: "text-yellow-500",
         title: "优惠卷",
         path: "/coupon/list"
     }
