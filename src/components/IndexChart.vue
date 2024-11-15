@@ -5,7 +5,7 @@
         <span class="text-sm">订单统计</span>
         <div>
           <el-check-tag v-for="(item, index) in options" :key="index" :checked="current === item.value"
-                        style="margin-right: 8px;" @click="handlChoose(item.value)">{{ item.text }}
+            style="margin-right: 8px;" @click="handlChoose(item.value)">{{ item.text }}
           </el-check-tag>
         </div>
       </div>
@@ -16,10 +16,10 @@
 
 
 <script setup>
-import {onMounted, ref, onBeforeUnmount} from 'vue'
+import { onMounted, ref, onBeforeUnmount } from 'vue'
 import * as echarts from 'echarts';
 import { useResizeObserver } from '@vueuse/core'
-import {getStatistics3} from '@/api/index.js'
+import { getStatistics3 } from '@/api/index.js'
 
 
 const current = ref("week")
@@ -42,11 +42,14 @@ const handlChoose = (type) => {
 let myChart = null;
 onMounted(() => {
   let chartDom = document.getElementById('chart');
-  myChart = echarts.init(chartDom);
-  getData()
+  if (chartDom) {
+    myChart = echarts.init(chartDom);
+    getData()
+  }
+
 })
 
-  // 解决图表白屏
+// 解决图表白屏
 onBeforeUnmount(() => {
   if (myChart) {
     myChart.dispose(myChart)
@@ -84,10 +87,15 @@ function getData() {
     myChart.hideLoading()
   })
 
+
+
 }
+
 
 const el = ref(null)
 useResizeObserver(el, (entries) => myChart.resize())
+
+
 
 
 </script>

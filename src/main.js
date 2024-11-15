@@ -20,4 +20,9 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 app.use(store)
 app.use(router)
 app.use(ElementPlus)
+
+
+import permission from '@/directives/permission'
+
+app.use(permission)
 app.mount('#app')
