@@ -6,7 +6,7 @@ import nprogress from 'nprogress'
  * @param type 图片
  * @param dangerouslyUseHTMLString 文本
  */
-export function toast(message,type = "success", dangerouslyUseHTMLString = false) {
+export function toast(message,type = "success", dangerouslyUseHTMLString = true) {
     // 对响应错误做点什么
     ElNotification({
         message,
