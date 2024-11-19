@@ -3,7 +3,7 @@
     <div class="top">
 
       <AsideList :active="activeId == item.id" v-for="(item, index) in list" :key="index" @edit="handleEdit(item)"
-        @delete="handleDelete(item.id)">
+        @delete="handleDelete(item.id)" @click="handlechangeActiveId(item.id)">
         {{ item.name }}
       </AsideList>
 
@@ -37,7 +37,7 @@ import { computed } from '@vue/reactivity';
 // 加载动画
 const loading = ref(false)
 const list = ref([])
-const activeId = ref(0)
+
 
 // 分页
 const currentPage = ref(1)
@@ -57,7 +57,7 @@ function getData(p = null) {
       list.value = res.list
       let item = list.value[0]
       if (item) {
-        activeId.value = item.id
+        handlechangeActiveId(item.id)
       }
     })
     .finally(() => {
@@ -131,6 +131,14 @@ const handleDelete = (id) => {
     })
 }
 
+// 选中图库分类id  
+const activeId = ref(0)
+const emit = defineEmits(["change"])
+// 切换分类 
+function handlechangeActiveId(id) {
+  activeId.value = id
+  emit("change", id)
+}
 
 defineExpose({
   handleCreate

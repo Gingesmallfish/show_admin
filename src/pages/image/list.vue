@@ -4,8 +4,8 @@
       <el-button type="primary" size="small" @click="handleOpenCreate">新增</el-button>
     </el-header>
     <el-container>
-      <ImageAside ref="ImageAsideRef" />
-      <ImageMain />
+      <ImageAside ref="ImageAsideRef" @change="handleAsideChange" />
+      <ImageMain ref="ImageMainRef" />
     </el-container>
   </el-container>
 </template>
@@ -21,6 +21,8 @@ const h = windowHeight - 64 - 44 - 40
 const ImageAsideRef = ref(null)
 const handleOpenCreate = () => ImageAsideRef.value.handleCreate()
 
+const ImageMainRef = ref(null)
+const handleAsideChange = (image_class_id) => ImageMainRef.value.loadData(image_class_id)
 </script>
 
 <style>

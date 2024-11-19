@@ -1,4 +1,4 @@
-import {ElNotification, ElMessageBox} from 'element-plus'
+import { ElNotification, ElMessageBox } from 'element-plus'
 import nprogress from 'nprogress'
 /**
  * 消息提示
@@ -6,7 +6,7 @@ import nprogress from 'nprogress'
  * @param type 图片
  * @param dangerouslyUseHTMLString 文本
  */
-export function toast(message,type = "success", dangerouslyUseHTMLString = true) {
+export function toast(message, type = "success", dangerouslyUseHTMLString = true) {
     // 对响应错误做点什么
     ElNotification({
         message,
@@ -32,10 +32,10 @@ export function hideFullLoading() {
  * @param type 图标
  * @param title 文本
  */
-export function showModel (content = "提示内容", type= "warning",title = "") {
-   return  ElMessageBox.confirm(
+export function showModel(content = "提示内容", type = "warning", title = "") {
+    return ElMessageBox.confirm(
         content,
-         title,
+        title,
         {
             confirmButtonText: '确认',
             cancelButtonText: '取消',
@@ -44,4 +44,11 @@ export function showModel (content = "提示内容", type= "warning",title = "")
     )
 }
 
-
+// 弹出输入框
+export function showPrompt(tip, value = "") {
+    return ElMessageBox.prompt(tip, '', {
+        confirmButtonText: '确认',
+        cancelButtonText: '取消',
+        inputValue: value
+    })
+}
