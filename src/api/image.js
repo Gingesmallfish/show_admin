@@ -28,4 +28,7 @@ export function deleteImage(ids) {
   return axios.post(`/admin/image/delete_all`, { ids })
 }
 
-
+/**
+ * 上传图片接口
+ */
+export const uploadImageAction = "/api/admin/image/upload"

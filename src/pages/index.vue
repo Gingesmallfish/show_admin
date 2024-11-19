@@ -57,8 +57,8 @@
         <IndexCard title="交易提示" tip="需要立即处理的交易订单" :btns="order" class="mt-3"/>
       </el-col>
     </el-row>
-
   </div>
+  <div class="flex items-center justify-center mt-3 text-gray-400">商城管理系统</div>
 </template>
 
 <script setup>
@@ -76,10 +76,10 @@ getStatistics1()
 
 
 const goods = ref([])
-const order = ref([])  
+const order = ref([])
 getStatistics2().then(res => {
   goods.value = res.goods
   order.value = res.order
-  
+
 })
 </script>

@@ -25,12 +25,21 @@
         @current-change="getData" />
     </div>
   </el-main>
+  <el-drawer v-model="drawer" title="上传图片">
+    <UploadFile :data="{ image_class_id }" @success="handleUploadSuccess"/>
+  </el-drawer>
+
 </template>
 
 <script setup>
 import { ref } from 'vue';
-import { getImageList, updateImage, deleteImage } from '../api/image.js';
-import { showPrompt, toast } from '../composables/util.js';
+import { getImageList, updateImage, deleteImage } from '@/api/image.js';
+import { showPrompt, toast } from '@/composables/util.js';
+import UploadFile from './UploadFile.vue';
+
+// 上传图片
+const drawer = ref(false)
+const openUploadFile = () => drawer.value = true
 
 // 分页
 const currentPage = ref(1)
@@ -57,7 +66,7 @@ function getData(p = null) {
     })
 }
 
-// 根据分类Id重新加载 图片列表 
+// 根据分类Id重新加载 图片列表
 const loadData = (id) => {
   currentPage.value = 1
   image_class_id.value = id
@@ -99,7 +108,8 @@ const handleDelete = (id) => {
 
 // 导出
 defineExpose({
-  loadData
+  loadData,
+  openUploadFile
 })
 
 </script>
