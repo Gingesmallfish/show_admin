@@ -11,6 +11,7 @@ import NoticeList from "@/pages/notice/list.vue"
 import SettingBase from "@/pages/setting/base.vue"
 import CouponList from "@/pages/coupon/list.vue"
 import OrderList from "@/pages/order/list.vue"
+import ManagerList from "@/pages/manager/list.vue"
 // 默认路由，所有人共享
 const routes = [
     {
@@ -109,21 +110,14 @@ const asyncRoutes = [
         }
     },
 
-    // {
-    //     path: "/category/list",
-    //     name: "/category/list",
-    //     component: CategoryList,
-    //     meta: {
-    //         title: "分类列表"
-    //     }
-    // }, {
-    //     path: "/skus/list",
-    //     name: "/skus/list",
-    //     component: SkusList,
-    //     meta: {
-    //         title: "规格管理"
-    //     }
-    // }
+    {
+        path: "/manager/list",
+        name: "/manager/list",
+        component: ManagerList,
+        meta: {
+            title: "管理员管理"
+        }
+    },
 ]
 
 

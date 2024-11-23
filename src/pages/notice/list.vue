@@ -52,12 +52,7 @@
 <script setup>
 import { ref, reactive, computed } from "vue"
 import FormDrawer from "@/components/FormDrawer.vue";
-import {
-    getNoticeList,
-    createNotice,
-    updateNotice,
-    deleteNotice
-} from "@/api/notice"
+import { getNoticeList, createNotice, updateNotice, deleteNotice } from "@/api/notice"
 import { toast } from "@/composables/util"
 
 const tableData = ref([])
