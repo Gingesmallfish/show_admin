@@ -1,5 +1,5 @@
 <template>
     <div>
-        用户组件
+        用户列表
     </div>
 </template>

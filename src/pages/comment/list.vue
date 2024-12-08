@@ -1,5 +1,5 @@
 <template>
     <div>
-        评价组件
+       评价列表
     </div>
 </template>

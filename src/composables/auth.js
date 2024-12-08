@@ -1,28 +1,18 @@
-import {useCookies} from "@vueuse/integrations/useCookies";
-const TokenKey  = "auth-token";
-
+import { useCookies } from '@vueuse/integrations/useCookies'
+const TokenKey = "admin-token"
 const cookie = useCookies()
 
-/**
- * 获取token
- * @returns {any} 参数
- */
-export function getToken() {
+// 获取token
+export function getToken(){
     return cookie.get(TokenKey)
 }
 
-/**
- * 设置token
- * @param token 参数
- */
-export function setToken(token) {
+// 设置token
+export function setToken(token){
     return cookie.set(TokenKey,token)
 }
 
-/**
- * 清楚token
- * @param token 参数
- */
-export function removeToken(token) {
-    return cookie.remove(TokenKey, token)
+// 清除token
+export function removeToken(){
+    return cookie.remove(TokenKey)
 }

@@ -1,33 +1,30 @@
 <template>
-    <div>
-        {{ d.num.toFixed(0) }}
-    </div>
+    {{ d.num.toFixed(0) }}
 </template>
-
 <script setup>
-import gsap from 'gsap'
-import { reactive, watch } from 'vue'
+import { reactive,watch } from "vue"
+import gsap from "gsap"
 
 const props = defineProps({
-    value: {
-        type: Number,
-        default: 0
+    value:{
+        type:Number,
+        default:0
     }
 })
 
 const d = reactive({
-    num: 0
+    num:0
 })
 
-function AnimateToValue() {
+function AnimateToValue(){
     gsap.to(d,{
-        duration: 0.5,
-        num: props.value
+        duration:0.5,
+        num:props.value
     })
 }
 
 AnimateToValue()
 
-// 重新监听动画
-watch(() => props.value, () => AnimateToValue())
+watch(()=>props.value,()=>AnimateToValue())
+
 </script>
